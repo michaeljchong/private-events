@@ -1,24 +1,13 @@
-# README
+# Private Events - Rails App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The aim of this project is to build a site for private event hosting and attending.
 
-Things you may want to cover:
+Goals:
 
-* Ruby version
+* Users can create many events
 
-* System dependencies
+* Users can attend many events
 
-* Configuration
+* Each event can have many users attending
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Events require a title, date, and location
