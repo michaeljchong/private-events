@@ -1,2 +1,15 @@
 <h1>Events</h1>
-<p>All events will be displayed here</p>
+
+<ul>
+  <% @events.each do |event| %>
+    <li>
+      <%= event.title %>
+    </li>
+    <li>
+      <%= event.date %>
+    </li>
+    <li>
+      <%= event.location %>
+    </li>
+  <% end %>
+</ul>
