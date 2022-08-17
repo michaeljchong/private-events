@@ -3,13 +3,13 @@
 <ul>
   <% @events.each do |event| %>
     <li>
-      <%= event.title %>
+      <p>Event Name: <%= event.title %></p>
     </li>
     <li>
-      <%= event.date %>
+      <p>Date: <%= event.date %></p>
     </li>
     <li>
-      <%= event.location %>
+      <p>Location: <%= event.location %></p>
     </li>
   <% end %>
 </ul>
