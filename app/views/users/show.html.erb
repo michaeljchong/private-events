@@ -1,15 +1,5 @@
 <h1>Events You Created</h1>
 
-<ul>
-  <% @events.each do |event| %>
-    <li>
-      <p>Event Name: <%= event.title %></p>
-    </li>
-    <li>
-      <p>Date: <%= event.date %></p>
-    </li>
-    <li>
-      <p>Location: <%= event.location %></p>
-    </li>
-  <% end %>
-</ul>
+<% @events.each do |event| %>
+  <%= render event %>
+<% end %>
