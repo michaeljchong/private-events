@@ -6,4 +6,9 @@
     'attendance[attended_event_id]': @event.id,
     'attendance[attendee_id]': current_user.id
   } %>
+
+  <h2>Attendees</h2>
+  <%  @event.attendances.each do |attendee| %>
+    <p><%= attendee.attendee.username %><p>
+  <% end %>
 </div>
