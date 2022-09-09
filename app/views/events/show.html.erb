@@ -2,4 +2,8 @@
   <h1><%= @event.title %></h1>
   <p><strong>Date: </strong><%= @event.date %></p>
   <p><strong>Location: </strong><%= @event.location %></p>
+  <%= button_to "Mark Attending", attendances_path, params: {
+    'attendance[attended_event_id]': @event.id,
+    'attendance[attendee_id]': current_user.id
+  } %>
 </div>
