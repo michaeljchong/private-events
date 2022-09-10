@@ -1,17 +1,23 @@
 class AttendancesController < ApplicationController
   def new
-    @event = current_user.attendances.build
-
+    @attending = current_user.attendances.build
   end
 
   def create
-    @event = current_user.attendances.build(attendance_params)
+    @attending = current_user.attendances.build(attendance_params)
 
-    if @event.save
+    if @attending.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @attending = Attendance.find(params[:id])
+    @attending.destroy
+
+    redirect_to root_path
   end
 
   private
