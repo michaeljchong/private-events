@@ -12,6 +12,8 @@
     <%= button_to "Can't Go", attendance_path(@attendance), method: :delete, controller: :attendance, data: { confirm: "Are you sure?" } %>
   <% end %>
 
+  <%= button_to "Back to Events", events_path, method: :get %>
+
   <h2>Attendees</h2>
   <%  @event.attendances.each do |attendee| %>
     <p><%= attendee.attendee.username %><p>
