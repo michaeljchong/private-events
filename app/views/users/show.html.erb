@@ -1,21 +1,17 @@
 <h1>Events You Created</h1>
 
-<% @created_events.each do |event| %>
+<% @events.each do |event| %>
   <%= render event %>
 <% end %>
 
 <h1>Upcoming Events</h1>
 
-<% @attended_events.each do |event| %>
-  <% if event.date > Time.now %>
+<% Event.where("date > ?", Time.now).each do |event| %>
     <%= render event %>
-  <% end %>
 <% end %>
 
 <h1>Past Events</h1>
 
-<% @attended_events.each do |event| %>
-  <% if event.date < Time.now %>
+<% Event.where("date < ?", Time.now).each do |event| %>
     <%= render event %>
-  <% end %>
 <% end %>
