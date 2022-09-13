@@ -7,7 +7,7 @@ class AttendancesController < ApplicationController
     @attending = current_user.attendances.build(attendance_params)
 
     if @attending.save
-      redirect_to root_path
+      redirect_to events_path(Event.find(params[:id]))
     else
       render :new, status: :unprocessable_entity
     end
@@ -17,7 +17,7 @@ class AttendancesController < ApplicationController
     @attending = Attendance.find(params[:id])
     @attending.destroy
 
-    redirect_to root_path
+    redirect_to event_url
   end
 
   private

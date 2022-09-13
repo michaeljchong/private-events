@@ -2,13 +2,16 @@
   <h1><%= @event.title %></h1>
   <p><strong>Date: </strong><%= @event.date %></p>
   <p><strong>Location: </strong><%= @event.location %></p>
-  <%= button_to "Going", params: {
-    'attendance[attended_event_id]': @event.id,
-    'attendance[attendee_id]': current_user.id
-  } %>
-  <%= button_to "Can't Go", attendance_path(@attendance), method: :delete, controller: :attendance, data: { confirm: "Are you sure?" } %>
-  <%# <%= button_to "Cant' Go", { :action => "delete", :id => @attending.id },
-          :confirm => "Are you sure?", :method => :delete %>
+
+  <% if current_user.attendances.empty? %>
+    <%= button_to "Going", attendances_path, params: {
+      'attendance[attended_event_id]': @event.id,
+      'attendance[attendee_id]': current_user.id
+    } %>
+  <% else %>
+    <%= button_to "Can't Go", attendance_path(@attendance), method: :delete, controller: :attendance, data: { confirm: "Are you sure?" } %>
+  <% end %>
+
   <h2>Attendees</h2>
   <%  @event.attendances.each do |attendee| %>
     <p><%= attendee.attendee.username %><p>
