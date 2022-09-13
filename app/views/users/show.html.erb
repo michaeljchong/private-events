@@ -7,7 +7,15 @@
 <h1>Upcoming Events</h1>
 
 <% @attended_events.each do |event| %>
-  <%= render event %>
+  <% if event.date > Time.now %>
+    <%= render event %>
+  <% end %>
 <% end %>
 
 <h1>Past Events</h1>
+
+<% @attended_events.each do |event| %>
+  <% if event.date < Time.now %>
+    <%= render event %>
+  <% end %>
+<% end %>
