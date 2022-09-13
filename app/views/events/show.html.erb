@@ -3,7 +3,7 @@
   <p><strong>Date: </strong><%= @event.date %></p>
   <p><strong>Location: </strong><%= @event.location %></p>
 
-  <% if current_user.attendances.empty? %>
+  <% if @attendance.nil? %>
     <%= button_to "Going", attendances_path, params: {
       'attendance[attended_event_id]': @event.id,
       'attendance[attendee_id]': current_user.id
