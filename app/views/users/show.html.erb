@@ -6,12 +6,12 @@
 
 <h1>Upcoming Events</h1>
 
-<% Event.where("date > ?", Time.now).each do |event| %>
+<% @events.upcoming.each do |event| %>
     <%= render event %>
 <% end %>
 
 <h1>Past Events</h1>
 
-<% Event.where("date < ?", Time.now).each do |event| %>
+<% @events.past.each do |event| %>
     <%= render event %>
 <% end %>
