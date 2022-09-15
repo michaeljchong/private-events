@@ -1,11 +1,9 @@
-<h1>Events</h1>
-
-<h2>Upcoming Events</h2>
+<h1>Upcoming Events</h1>
 <% @events.upcoming.each do |event| %>
   <%= render event %>
 <% end %>
 
-<h2>Past Events</h2>
+<h1>Past Events</h1>
 <% @events.past.each do |event| %>
   <%= render event %>
 <% end %>
