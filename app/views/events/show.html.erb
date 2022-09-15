@@ -3,13 +3,17 @@
   <p><strong>Date: </strong><%= @event.date %></p>
   <p><strong>Location: </strong><%= @event.location %></p>
 
-  <% if @attendance.nil? %>
-    <%= button_to "Going", attendances_path, params: {
-      'attendance[attended_event_id]': @event.id,
-      'attendance[attendee_id]': current_user.id
-    } %>
+  <% if user_signed_in? %>
+    <% if @attendance.nil? %>
+      <%= button_to "Going", attendances_path, params: {
+        'attendance[attended_event_id]': @event.id,
+        'attendance[attendee_id]': current_user.id
+      } %>
+    <% else %>
+      <%= button_to "Can't Go", attendance_path(@attendance), method: :delete, controller: :attendance, data: { confirm: "Are you sure?" } %>
+    <% end %>
   <% else %>
-    <%= button_to "Can't Go", attendance_path(@attendance), method: :delete, controller: :attendance, data: { confirm: "Are you sure?" } %>
+    <%= button_to "Log in to join this event", new_user_session_path, method: :get %>
   <% end %>
 
   <%= button_to "Back to Events", events_path, method: :get %>

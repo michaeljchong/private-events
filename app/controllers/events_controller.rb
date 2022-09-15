@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @events = Event.all
@@ -8,7 +8,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @attendance = current_user.attendances.find_by attended_event_id: params[:id]
+    if user_signed_in?
+      @attendance = current_user.attendances.find_by attended_event_id: params[:id]
+    end
   end
 
   def new
