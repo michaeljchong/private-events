@@ -1,4 +1,6 @@
 class AttendancesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @attending = current_user.attendances.build
   end
