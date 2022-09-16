@@ -1,25 +1,23 @@
-<nav>
-  <ul>
-    <li class="nav-item">
-      <%= link_to 'Home', events_path %>
+<ul class="navbar">
+  <li class="<%= 'active' if current_page?(root_path) || current_page?(events_path) %> nav-item">
+    <%= link_to 'Home', events_path, class: "nav-link" %>
+  </li>
+  <% if user_signed_in? %>
+    <li class="<%= 'active' if current_page?(new_event_path) %> nav-item">
+      <%= link_to 'Create Event', new_event_path, class: "nav-link" %>
     </li>
-    <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to 'Create Event', new_event_path %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Your Events', users_show_path %>
-      </li>
-      <li class="nav-item">
-        <%= link_to current_user.username, edit_user_registration_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, data: { turbo_method: "delete" }, class: "nav-link" %>
-      </li>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to 'Log In', user_session_path, class: "nav-link" %>
-      </li>
-    <% end %>
-  </ul>
-</nav>
+    <li class="<%= 'active' if current_page?(users_show_path) %> nav-item">
+      <%= link_to 'Your Events', users_show_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item align-right">
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, data: { turbo_method: "delete" }, class: "nav-link" %>
+    </li>
+    <li class="<%= 'active' if current_page?(edit_user_registration_path) %> nav-item align-right">
+      <%= link_to current_user.username, edit_user_registration_path, class: "nav-link" %>
+    </li>
+  <% else %>
+    <li class="<%= 'active' if current_page?(user_session_path) %> nav-item align-right">
+      <%= link_to 'Log In', user_session_path, class: "nav-link" %>
+    </li>
+  <% end %>
+</ul>
