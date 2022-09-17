@@ -10,7 +10,11 @@
         'attendance[attendee_id]': current_user.id
       } %>
     <% else %>
-      <%= button_to "Can't Go", attendance_path(@attendance), method: :delete, controller: :attendance, data: { confirm: "Are you sure?" } %>
+      <%= button_to "Not Going", attendance_path(@attendance), method: :delete, controller: :attendance, data: { confirm: "Are you sure?" } %>
+    <% end %>
+
+    <% if current_user.id == @event.creator_id %>
+     <%= button_to "Edit Event", edit_event_path, method: :get %>
     <% end %>
   <% else %>
     <%= button_to "Log in to join this event", new_user_session_path, method: :get %>
