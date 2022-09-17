@@ -1,0 +1,20 @@
+.main {
+  padding: 10px;
+}
+
+.main a:hover {
+  color: gray;
+}
+
+.container {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+}
+
+.event-container {
+  background-color: rgb(236, 236, 236);
+  padding: 10px;
+  border-radius: 10px;
+}
