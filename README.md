@@ -27,3 +27,5 @@ Project Extensions:
 * Option to make events private
 
 * Allow users to invite other users to event
+
+* Dynamic element styling
