@@ -1,16 +1,14 @@
-<div class="event-container">
+<%= link_to event, class: "event-container" do %>
   <p>
     <strong>Event Name: </strong>
-    <%= link_to event.title, event %>
+    <%= event.title %>
   </p>
-
   <p>
     <strong>Date: </strong>
     <%= event.date %>
   </p>
-
   <p>
     <strong>Location: </strong>
     <%= event.location %>
   </p>
-</div>
+<% end %>
