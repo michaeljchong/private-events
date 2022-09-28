@@ -1,9 +1,8 @@
-<h1>Upcoming Events</h1>
+<p> *Private events can be viewed on your events page </p>
+<h1>Upcoming Public Events</h1>
 <div class="container">
   <% @events.upcoming.each do |event| %>
-    <% if event.private_event %>
-      <%= render "private", event: event %>
-    <% else %>
+    <% unless event.private_event %>
       <%= link_to event, class: "event-container" do %>
         <%= render event %>
       <% end %>
@@ -11,12 +10,10 @@
   <% end %>
 </div>
 
-<h1>Past Events</h1>
+<h1>Past Public Events</h1>
 <div class="container">
   <% @events.past.each do |event| %>
-    <% if event.private_event %>
-      <%= render "private", event: event %>
-    <% else %>
+    <% unless event.private_event %>
       <%= link_to event, class: "event-container" do %>
         <%= render event %>
       <% end %>
