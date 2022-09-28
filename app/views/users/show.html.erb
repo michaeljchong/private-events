@@ -4,7 +4,9 @@
     <%= link_to 'Create a new event', new_event_path, class: "event-container"%>
   <% end %>
   <% @created_events.each do |event| %>
-    <%= render event %>
+    <%= link_to event, class: "event-container" do %>
+      <%= render event %>
+    <% end %>
   <% end %>
 </div>
 
@@ -13,14 +15,18 @@
   <% if @attended_events.empty? %>
     <%= link_to 'View existing events', events_path, class: "event-container" %>
   <% end %>
-<% @attended_events.upcoming.each do |event| %>
-    <%= render event %>
-<% end %>
+  <% @attended_events.upcoming.each do |event| %>
+    <%= link_to event, class: "event-container" do %>
+      <%= render event %>
+    <% end %>
+  <% end %>
 </div>
 
 <h1>Past Events</h1>
 <div class="container">
-<% @attended_events.past.each do |event| %>
-    <%= render event %>
-<% end %>
+  <% @attended_events.past.each do |event| %>
+    <%= link_to event, class: "event-container" do %>
+      <%= render event %>
+    <% end %>
+  <% end %>
 </div>
