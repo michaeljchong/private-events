@@ -28,4 +28,6 @@ Project Extensions:
 
 * Allow event creator to invite other users to event
 
+* Prevent users from navigating to private events via browser path
+
 * Dynamic element styling
