@@ -22,10 +22,10 @@ Features:
 
 * User authentication
 
-Project Extensions:
-
 * Option to make events private
 
-* Allow users to invite other users to event
+Project Extensions:
+
+* Allow event creator to invite other users to event
 
 * Dynamic element styling
