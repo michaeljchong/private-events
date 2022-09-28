@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <% if current_user.id == event.creator_id || event.attendance_ids.include?(current_user.id) %>
+    <%= link_to event, class: "event-container" do %>
+      <%= render event %>
+    <% end %>
+  <% end %>
+<% end %>
