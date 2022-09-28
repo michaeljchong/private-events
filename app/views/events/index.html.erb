@@ -1,6 +1,10 @@
 <p> *Private events can be viewed on your events page </p>
+
 <h1>Upcoming Public Events</h1>
 <div class="container">
+  <% if @events.upcoming.empty? %>
+    <%= link_to 'Create a new event', new_event_path, class: "event-container"%>
+  <% end %>
   <% @events.upcoming.each do |event| %>
     <% unless event.private_event %>
       <%= link_to event, class: "event-container" do %>
