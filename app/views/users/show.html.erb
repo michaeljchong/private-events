@@ -12,7 +12,7 @@
 
 <h1>Upcoming Events</h1>
 <div class="container">
-  <% if @attended_events.empty? %>
+  <% if @attended_events.upcoming.empty? %>
     <%= link_to 'View existing events', events_path, class: "event-container" %>
   <% end %>
   <% @attended_events.upcoming.each do |event| %>
