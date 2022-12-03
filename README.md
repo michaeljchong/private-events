@@ -1,6 +1,6 @@
 # Private Events - Rails App
 
-The aim of this project was to build a site for private event hosting and attending (think EventBrite). This project provided practice in creating a rails app from the ground up, creating more complex associations, querying, and hosting multiple users. See the <a href="https://afternoon-reef-60955.herokuapp.com/">live preview</a>.
+The aim of this project was to build a site for private event hosting and attending (think EventBrite). This project provided practice in creating a rails app from the ground up, creating more complex associations, querying, and hosting multiple users. See the <a href="https://private-events-production.up.railway.app">live preview</a>.
 
 Features:
 
